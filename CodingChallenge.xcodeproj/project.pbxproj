@@ -9,12 +9,38 @@
 /* Begin PBXBuildFile section */
 		DC8371F81E27DCF50094DA4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8371F71E27DCF50094DA4F /* main.m */; };
 		DC8371FB1E27DCF50094DA4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8371FA1E27DCF50094DA4F /* AppDelegate.m */; };
-		DC8371FE1E27DCF50094DA4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8371FD1E27DCF50094DA4F /* ViewController.m */; };
 		DC8372011E27DCF50094DA4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8371FF1E27DCF50094DA4F /* Main.storyboard */; };
 		DC8372031E27DCF50094DA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC8372021E27DCF50094DA4F /* Assets.xcassets */; };
 		DC8372061E27DCF50094DA4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8372041E27DCF50094DA4F /* LaunchScreen.storyboard */; };
 		DC8372111E27DCF50094DA4F /* CodingChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372101E27DCF50094DA4F /* CodingChallengeTests.m */; };
 		DC83721C1E27DCF50094DA4F /* CodingChallengeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83721B1E27DCF50094DA4F /* CodingChallengeUITests.m */; };
+		DC8372421E27ECC10094DA4F /* TrackDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372411E27ECC10094DA4F /* TrackDetails.m */; };
+		DC8372431E27ECC10094DA4F /* TrackDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372411E27ECC10094DA4F /* TrackDetails.m */; };
+		DC8372441E27ECC10094DA4F /* TrackDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372411E27ECC10094DA4F /* TrackDetails.m */; };
+		DC8372471E27ED790094DA4F /* LyricsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372461E27ED790094DA4F /* LyricsDetails.m */; };
+		DC8372481E27ED790094DA4F /* LyricsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372461E27ED790094DA4F /* LyricsDetails.m */; };
+		DC8372491E27ED790094DA4F /* LyricsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372461E27ED790094DA4F /* LyricsDetails.m */; };
+		DC83724C1E27EFB30094DA4F /* ConstantStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83724B1E27EFB30094DA4F /* ConstantStrings.m */; };
+		DC83724D1E27EFB30094DA4F /* ConstantStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83724B1E27EFB30094DA4F /* ConstantStrings.m */; };
+		DC83724E1E27EFB30094DA4F /* ConstantStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83724B1E27EFB30094DA4F /* ConstantStrings.m */; };
+		DC8372521E27F1E60094DA4F /* LyricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372501E27F1E60094DA4F /* LyricsViewController.m */; };
+		DC8372531E27F1E60094DA4F /* LyricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372501E27F1E60094DA4F /* LyricsViewController.m */; };
+		DC8372541E27F1E60094DA4F /* LyricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372501E27F1E60094DA4F /* LyricsViewController.m */; };
+		DC83725A1E27F30F0094DA4F /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372591E27F30F0094DA4F /* CommonMethods.m */; };
+		DC83725B1E27F30F0094DA4F /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372591E27F30F0094DA4F /* CommonMethods.m */; };
+		DC83725C1E27F30F0094DA4F /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372591E27F30F0094DA4F /* CommonMethods.m */; };
+		DC83725F1E27F79C0094DA4F /* ParseJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83725E1E27F79C0094DA4F /* ParseJSON.m */; };
+		DC8372601E27F79C0094DA4F /* ParseJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83725E1E27F79C0094DA4F /* ParseJSON.m */; };
+		DC8372611E27F79C0094DA4F /* ParseJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83725E1E27F79C0094DA4F /* ParseJSON.m */; };
+		DC8372641E27F80B0094DA4F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372631E27F80B0094DA4F /* Singleton.m */; };
+		DC8372651E27F80B0094DA4F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372631E27F80B0094DA4F /* Singleton.m */; };
+		DC8372661E27F80B0094DA4F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372631E27F80B0094DA4F /* Singleton.m */; };
+		DC8372691E2823530094DA4F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372681E2823520094DA4F /* SearchTableViewController.m */; };
+		DC83726A1E2823530094DA4F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372681E2823520094DA4F /* SearchTableViewController.m */; };
+		DC83726B1E2823530094DA4F /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8372681E2823520094DA4F /* SearchTableViewController.m */; };
+		DC83726E1E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
+		DC83726F1E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
+		DC8372701E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +65,6 @@
 		DC8371F71E27DCF50094DA4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC8371F91E27DCF50094DA4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC8371FA1E27DCF50094DA4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DC8371FC1E27DCF50094DA4F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DC8371FD1E27DCF50094DA4F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC8372001E27DCF50094DA4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC8372021E27DCF50094DA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC8372051E27DCF50094DA4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +75,24 @@
 		DC8372171E27DCF50094DA4F /* CodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC83721B1E27DCF50094DA4F /* CodingChallengeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodingChallengeUITests.m; sourceTree = "<group>"; };
 		DC83721D1E27DCF50094DA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC8372401E27ECC10094DA4F /* TrackDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDetails.h; sourceTree = "<group>"; };
+		DC8372411E27ECC10094DA4F /* TrackDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDetails.m; sourceTree = "<group>"; };
+		DC8372451E27ED790094DA4F /* LyricsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsDetails.h; sourceTree = "<group>"; };
+		DC8372461E27ED790094DA4F /* LyricsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsDetails.m; sourceTree = "<group>"; };
+		DC83724A1E27EFB30094DA4F /* ConstantStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantStrings.h; sourceTree = "<group>"; };
+		DC83724B1E27EFB30094DA4F /* ConstantStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantStrings.m; sourceTree = "<group>"; };
+		DC83724F1E27F1E60094DA4F /* LyricsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricsViewController.h; sourceTree = "<group>"; };
+		DC8372501E27F1E60094DA4F /* LyricsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsViewController.m; sourceTree = "<group>"; };
+		DC8372581E27F30F0094DA4F /* CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMethods.h; sourceTree = "<group>"; };
+		DC8372591E27F30F0094DA4F /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
+		DC83725D1E27F79C0094DA4F /* ParseJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSON.h; sourceTree = "<group>"; };
+		DC83725E1E27F79C0094DA4F /* ParseJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSON.m; sourceTree = "<group>"; };
+		DC8372621E27F80B0094DA4F /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../Network/Singleton.h; sourceTree = "<group>"; };
+		DC8372631E27F80B0094DA4F /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Singleton.m; path = ../Network/Singleton.m; sourceTree = "<group>"; };
+		DC8372671E2823520094DA4F /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		DC8372681E2823520094DA4F /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		DC83726C1E2826210094DA4F /* TrackDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDCell.h; sourceTree = "<group>"; };
+		DC83726D1E2826210094DA4F /* TrackDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +143,12 @@
 		DC8371F51E27DCF50094DA4F /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				DC83722C1E27DE6A0094DA4F /* Utility */,
+				DC83722B1E27DE5C0094DA4F /* Model */,
+				DC83722A1E27DE520094DA4F /* Network */,
+				DC8372291E27DE4A0094DA4F /* Controllers */,
 				DC8371F91E27DCF50094DA4F /* AppDelegate.h */,
 				DC8371FA1E27DCF50094DA4F /* AppDelegate.m */,
-				DC8371FC1E27DCF50094DA4F /* ViewController.h */,
-				DC8371FD1E27DCF50094DA4F /* ViewController.m */,
 				DC8371FF1E27DCF50094DA4F /* Main.storyboard */,
 				DC8372021E27DCF50094DA4F /* Assets.xcassets */,
 				DC8372041E27DCF50094DA4F /* LaunchScreen.storyboard */,
@@ -138,6 +182,60 @@
 				DC83721D1E27DCF50094DA4F /* Info.plist */,
 			);
 			path = CodingChallengeUITests;
+			sourceTree = "<group>";
+		};
+		DC8372291E27DE4A0094DA4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC8372361E27E7B60094DA4F /* Cells */,
+				DC83724F1E27F1E60094DA4F /* LyricsViewController.h */,
+				DC8372501E27F1E60094DA4F /* LyricsViewController.m */,
+				DC8372671E2823520094DA4F /* SearchTableViewController.h */,
+				DC8372681E2823520094DA4F /* SearchTableViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DC83722A1E27DE520094DA4F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DC83725D1E27F79C0094DA4F /* ParseJSON.h */,
+				DC83725E1E27F79C0094DA4F /* ParseJSON.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DC83722B1E27DE5C0094DA4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC8372401E27ECC10094DA4F /* TrackDetails.h */,
+				DC8372411E27ECC10094DA4F /* TrackDetails.m */,
+				DC8372451E27ED790094DA4F /* LyricsDetails.h */,
+				DC8372461E27ED790094DA4F /* LyricsDetails.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC83722C1E27DE6A0094DA4F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DC8372621E27F80B0094DA4F /* Singleton.h */,
+				DC8372631E27F80B0094DA4F /* Singleton.m */,
+				DC83724A1E27EFB30094DA4F /* ConstantStrings.h */,
+				DC83724B1E27EFB30094DA4F /* ConstantStrings.m */,
+				DC8372581E27F30F0094DA4F /* CommonMethods.h */,
+				DC8372591E27F30F0094DA4F /* CommonMethods.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DC8372361E27E7B60094DA4F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DC83726C1E2826210094DA4F /* TrackDCell.h */,
+				DC83726D1E2826210094DA4F /* TrackDCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC8371FE1E27DCF50094DA4F /* ViewController.m in Sources */,
+				DC8372471E27ED790094DA4F /* LyricsDetails.m in Sources */,
+				DC83725A1E27F30F0094DA4F /* CommonMethods.m in Sources */,
+				DC8372691E2823530094DA4F /* SearchTableViewController.m in Sources */,
 				DC8371FB1E27DCF50094DA4F /* AppDelegate.m in Sources */,
+				DC8372421E27ECC10094DA4F /* TrackDetails.m in Sources */,
+				DC83726E1E2826210094DA4F /* TrackDCell.m in Sources */,
+				DC83724C1E27EFB30094DA4F /* ConstantStrings.m in Sources */,
 				DC8371F81E27DCF50094DA4F /* main.m in Sources */,
+				DC8372521E27F1E60094DA4F /* LyricsViewController.m in Sources */,
+				DC8372641E27F80B0094DA4F /* Singleton.m in Sources */,
+				DC83725F1E27F79C0094DA4F /* ParseJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +389,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8372431E27ECC10094DA4F /* TrackDetails.m in Sources */,
+				DC83725B1E27F30F0094DA4F /* CommonMethods.m in Sources */,
 				DC8372111E27DCF50094DA4F /* CodingChallengeTests.m in Sources */,
+				DC83726A1E2823530094DA4F /* SearchTableViewController.m in Sources */,
+				DC8372601E27F79C0094DA4F /* ParseJSON.m in Sources */,
+				DC83724D1E27EFB30094DA4F /* ConstantStrings.m in Sources */,
+				DC8372481E27ED790094DA4F /* LyricsDetails.m in Sources */,
+				DC8372651E27F80B0094DA4F /* Singleton.m in Sources */,
+				DC8372531E27F1E60094DA4F /* LyricsViewController.m in Sources */,
+				DC83726F1E2826210094DA4F /* TrackDCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +406,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8372441E27ECC10094DA4F /* TrackDetails.m in Sources */,
+				DC83725C1E27F30F0094DA4F /* CommonMethods.m in Sources */,
 				DC83721C1E27DCF50094DA4F /* CodingChallengeUITests.m in Sources */,
+				DC83726B1E2823530094DA4F /* SearchTableViewController.m in Sources */,
+				DC8372611E27F79C0094DA4F /* ParseJSON.m in Sources */,
+				DC83724E1E27EFB30094DA4F /* ConstantStrings.m in Sources */,
+				DC8372491E27ED790094DA4F /* LyricsDetails.m in Sources */,
+				DC8372661E27F80B0094DA4F /* Singleton.m in Sources */,
+				DC8372541E27F1E60094DA4F /* LyricsViewController.m in Sources */,
+				DC8372701E2826210094DA4F /* TrackDCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
