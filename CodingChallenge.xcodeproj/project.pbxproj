@@ -42,6 +42,9 @@
 		DC83726F1E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
 		DC8372701E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
 		DCAD1BE71E28BEE6001B9BA8 /* README in Resources */ = {isa = PBXBuildFile; fileRef = DCAD1BE61E28BEE6001B9BA8 /* README */; };
+		DCAD1BEA1E28E62D001B9BA8 /* ghostimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DCAD1BE91E28E62D001B9BA8 /* ghostimage.jpg */; };
+		DCAD1BEB1E28E62D001B9BA8 /* ghostimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DCAD1BE91E28E62D001B9BA8 /* ghostimage.jpg */; };
+		DCAD1BEC1E28E62D001B9BA8 /* ghostimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DCAD1BE91E28E62D001B9BA8 /* ghostimage.jpg */; };
 		DCEC14F81E288EB500E7CD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8371FF1E27DCF50094DA4F /* Main.storyboard */; };
 		DCEC14F91E288EB600E7CD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8371FF1E27DCF50094DA4F /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -97,6 +100,7 @@
 		DC83726C1E2826210094DA4F /* TrackDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDCell.h; sourceTree = "<group>"; };
 		DC83726D1E2826210094DA4F /* TrackDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDCell.m; sourceTree = "<group>"; };
 		DCAD1BE61E28BEE6001B9BA8 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DCAD1BE91E28E62D001B9BA8 /* ghostimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghostimage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		DC8371F51E27DCF50094DA4F /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				DCAD1BE81E28E62D001B9BA8 /* Resources */,
 				DC83722C1E27DE6A0094DA4F /* Utility */,
 				DC83722B1E27DE5C0094DA4F /* Model */,
 				DC83722A1E27DE520094DA4F /* Network */,
@@ -241,6 +246,14 @@
 				DC83726D1E2826210094DA4F /* TrackDCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DCAD1BE81E28E62D001B9BA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCAD1BE91E28E62D001B9BA8 /* ghostimage.jpg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAD1BE71E28BEE6001B9BA8 /* README in Resources */,
+				DCAD1BEA1E28E62D001B9BA8 /* ghostimage.jpg in Resources */,
 				DC8372061E27DCF50094DA4F /* LaunchScreen.storyboard in Resources */,
 				DC8372031E27DCF50094DA4F /* Assets.xcassets in Resources */,
 				DC8372011E27DCF50094DA4F /* Main.storyboard in Resources */,
@@ -361,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCEC14F91E288EB600E7CD53 /* Main.storyboard in Resources */,
+				DCAD1BEB1E28E62D001B9BA8 /* ghostimage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCEC14F81E288EB500E7CD53 /* Main.storyboard in Resources */,
+				DCAD1BEC1E28E62D001B9BA8 /* ghostimage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

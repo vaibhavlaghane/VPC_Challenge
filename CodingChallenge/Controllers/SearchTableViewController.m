@@ -67,19 +67,35 @@ static NSString *userMessage = @"Track searched is not available. Please type di
             cell.labelStringAlbum.text = track.albumName ;
             cell.currTrackID = track.uniqueID ;
             cell.imageUrl = track.imageURL ;
+//if(cell.imageView == nil){
+              [cell.imageView setImage:[ UIImage imageNamed:@"ghostimage.jpg"]];
+         //   }
             NSURL *filePath =   [trackIDFilePaths objectForKey:track.uniqueID];
             
                 if (filePath != nil){
-                    ///load the image frmo the image path
-                    UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
-                    if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
-                    }
-                    if(downloadedImage){
-                        [cell.imageView setImage:downloadedImage];
-                    }
+                    
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
+                        if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
+                        }
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if(downloadedImage){
+                                [cell.imageView setImage:downloadedImage];
+                            }
+                        });
+                        
+                    }); 
+                    
                 }else if (track.imageURL !=nil ){
+                    
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                         UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:track.imageURL ]]];
-                        [cell.imageView setImage:downloadedImage];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [cell.imageView setImage:downloadedImage];
+                        });
+                       
+                    });
+                    
                 }
         }
             
