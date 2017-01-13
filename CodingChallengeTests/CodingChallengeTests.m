@@ -36,4 +36,27 @@
     }];
 }
 
+-(void )testSearchViewCLoads{
+
+    
+}
+
+
+-(void )testLyricsViewCLoads{
+    
+    
+}
+
+-(void )testParseJSON{
+    
+    
+}
+
+
+-(void )testFileDownload{
+    
+    
+}
+
+
 @end

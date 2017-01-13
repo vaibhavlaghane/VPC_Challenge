@@ -10,6 +10,6 @@
 #import "TrackDetails.h"
 
 @implementation TrackDetails
-@synthesize trackName,artistName, albumName, info,uniqueID,trackImage,imageURL;
+@synthesize trackName,artistName, albumName, info,uniqueID,trackImage,imageURL, imagefilePath;
 
 @end

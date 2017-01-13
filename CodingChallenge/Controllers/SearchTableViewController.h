@@ -12,7 +12,7 @@
 #import "LyricsViewController.h"
 #import "ParseJSON.h"
 
-@interface SearchTableViewController : UITableViewController
+@interface SearchTableViewController : UITableViewController<NSURLSessionDownloadDelegate, NSURLSessionTaskDelegate, NSURLSessionDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tracksTableView;
 

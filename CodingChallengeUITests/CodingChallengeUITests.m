@@ -40,6 +40,24 @@
 -(void)testSearchViewLaunch{
 
     
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emptyListTable = app.tables[@"Empty list"];
+    XCUIElement *searchField = [emptyListTable childrenMatchingType:XCUIElementTypeSearchField].element;
+    [searchField tap];
+    [searchField tap];
+    [searchField typeText:@"fdgdh"];
+    [app typeText:@"\r"];
+    
+    XCUIElement *trackunavailableAlert = app.alerts[@"TrackUnavailable"];
+    [trackunavailableAlert.staticTexts[@"Track searched is not available. Please type different combinations of the text and search"] tap];
+    [trackunavailableAlert.buttons[@"Ok"] tap];
+    [emptyListTable swipeDown];
+    [searchField tap];
+    [searchField tap];
+    [searchField typeText:@"r"];
+    [app typeText:@"\r"];
+    
+    
 
 }
 

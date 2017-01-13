@@ -17,4 +17,5 @@
 @property (atomic,readwrite) NSString* uniqueID;
 @property (atomic,readwrite) UIImage * trackImage;
 @property (atomic,readwrite) NSString * imageURL;
+@property (atomic,readwrite) NSString * imagefilePath;
 @end
