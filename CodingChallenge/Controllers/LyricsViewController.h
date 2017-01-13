@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TrackDetails.h"
+#import "ParseJSON.h"
+#import "CommonMethods.h"
 
 @interface LyricsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

@@ -171,8 +171,6 @@ didFinishDownloadingToURL:(NSURL *)location{
                         [trackIDFilePaths setObject:dataURL forKey:desc];
                     }
                     dispatch_async( dispatch_get_main_queue()   , ^{
-                        
-                        
                        // [ self.tableView  beginUpdates ];
                         [self.tableView reloadData];
                       //  [self.tableView endUpdates];
@@ -225,7 +223,7 @@ didCompleteWithError:(nullable NSError *)error{
                                 [self.tableView reloadData];
                                 //[self.tableView endUpdates];
                                 self.tableView.contentOffset= CGPointZero ;;
-                                [self.view setNeedsLayout ];
+                                //[self.view setNeedsLayout ];
                             });
                           
                       }];

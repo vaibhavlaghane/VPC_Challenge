@@ -43,16 +43,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
                 [tracks  addObject:track];
                 [tracksSet setByAddingObject:uniqID];
             }
-            
         }
     }
-    
     return tracks;
-
-
 }
-
-
 
 -(NSMutableArray*)parseLyricsJSON:(NSDictionary *)jsonDict{
 
@@ -76,8 +70,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
     
     return lyrics;
     
-    
 }
+
 
 
 @end
