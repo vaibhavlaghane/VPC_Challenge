@@ -84,18 +84,9 @@
         
         dataTask = [session dataTaskWithURL:url
                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                              // Executed when the response comes from server
-                              // Handle Response here
                               NSDictionary * json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                              //refresh and reload the track list objects
-                             
                                   tracksArray = nil;
                                   tracksArray = [[ ParseJSON shared ] parseTracksJSON:json];
-                                  if (tracksArray == nil || [tracksArray count] == 0){
-                                      //alert the user with message
-                                    //  [ self alertUser:userMessage ];
-                                  }
-                             
                               XCTAssertNil(tracksArray, @"json returned nil ");
                               
                           }];
@@ -114,18 +105,9 @@
     
     dataTask = [session dataTaskWithURL:url
                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                          // Executed when the response comes from server
-                          // Handle Response here
                           NSDictionary * json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                          //refresh and reload the track list objects
-                          
                           tracksArray = nil;
                           tracksArray = [[ ParseJSON shared ] parseTracksJSON:json];
-                          if (tracksArray == nil || [tracksArray count] == 0){
-                              //alert the user with message
-                              //  [ self alertUser:userMessage ];
-                          }
-                          
                           XCTAssertNotNil(tracksArray, @"json returned nil ");
                           
                       }];

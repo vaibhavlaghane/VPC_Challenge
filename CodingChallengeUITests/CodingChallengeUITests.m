@@ -66,6 +66,7 @@
     [searchField typeText:@"fdgdh"];
     [app typeText:@"\r"];
     
+    sleep(2);
     XCUIElement *trackunavailableAlert = app.alerts[@"TrackUnavailable"];
     [trackunavailableAlert.staticTexts[@"Track searched is not available. Please type different combinations of the text and search"] tap];
     [trackunavailableAlert.buttons[@"Ok"] tap];
