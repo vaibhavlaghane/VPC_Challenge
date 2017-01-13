@@ -43,12 +43,7 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath;
-//{
-//    return 150;
-//}
-
+ 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return  [tracksArray count];
 }
@@ -64,6 +59,7 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     @synchronized (tracksArray ) {
         
         if([tracksArray objectAtIndex:indexPath.row] != nil ){
+            ///load cell with the track details
             TrackDetails *track = [ tracksArray objectAtIndex:(int )indexPath.row ];
             cell.labelStringTrack.text = track.trackName ;
             cell.labelStringInfo.text = track.info;
@@ -74,13 +70,23 @@ static NSString *userMessage = @"Track searched is not available. Please type di
             NSURL *filePath =   [trackIDFilePaths objectForKey:track.uniqueID];
             
                 if (filePath != nil){
-                    
+                    ///load the image frmo the image path
                     UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
                     if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
-                    [cell.imageView setImage:downloadedImage];
-                }
-            }
-        }
+                    }
+                    
+                    if(downloadedImage){
+                        [cell.imageView setImage:downloadedImage];
+                        [cell.imageView2 setImage:downloadedImage];
+                    }
+                        
+            }else if (track.imageURL !=nil ){
+                            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:track.imageURL ]]];
+                            [cell.imageView setImage:downloadedImage];
+                        }
+                    }
+            
+        
     }
     return cell;
 }
@@ -98,15 +104,11 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     if(currTrackObj != nil ){
         
         lyricsVC = segue.destinationViewController;
-        
+        //Pass the currTrack details to the new view controller
         lyricsVC.currTrack = currTrackObj;
-//        lyricsVC.labelStringTrack.text = currTrackObj.trackName;
-//        lyricsVC.labelStringAlbum.text = currTrackObj.albumName;
-//        lyricsVC.LabelStringArtist.text = currTrackObj.artistName ;
         NSURL *filePath =   [trackIDFilePaths objectForKey:currTrackObj.uniqueID];
         if (filePath != nil){
             lyricsVC.imageURL = filePath;
- 
             }
         }
     
@@ -171,10 +173,9 @@ didFinishDownloadingToURL:(NSURL *)location{
                         [trackIDFilePaths setObject:dataURL forKey:desc];
                     }
                     dispatch_async( dispatch_get_main_queue()   , ^{
-                       // [ self.tableView  beginUpdates ];
+                     
                         [self.tableView reloadData];
-                      //  [self.tableView endUpdates];
-                            [self.view setNeedsLayout ];
+                      
                     });
                 }
             }
@@ -219,9 +220,8 @@ didCompleteWithError:(nullable NSError *)error{
                             }
                           //once all the track names are read --- reload the table view
                             dispatch_async( dispatch_get_main_queue()   , ^{
-                               // [self.tableView beginUpdates];
+ 
                                 [self.tableView reloadData];
-                                //[self.tableView endUpdates];
                                 self.tableView.contentOffset= CGPointZero ;;
                                 //[self.view setNeedsLayout ];
                             });

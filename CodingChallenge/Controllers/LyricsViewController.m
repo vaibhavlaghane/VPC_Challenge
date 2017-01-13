@@ -70,7 +70,7 @@
 -(NSString*)formJSON{
 //http://lyrics.wikia.com/api.php?func=getSong&artist=Tom+Waits&song=new+coat+of+paint&fmt=json
     
-    NSString* prefix= @"http://lyrics.wikia.com/api.php?func=getSong&artist=";
+    NSString *prefix= @"http://lyrics.wikia.com/api.php?func=getSong&artist=";
     NSString *prefix2 = @"&song=";
     NSString *prefix3 = @"&fmt=";
     NSString *artist = _currTrack.artistName;
@@ -98,7 +98,10 @@
                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                           // Executed when the response comes from server
                           // Handle Response here
-                          NSDictionary * json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                          NSDictionary * json = nil;
+                          if(data != nil ){
+                              json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                          }
                           //refresh and reload the track list objects
                           @synchronized (lyricsArray) {
                               lyricsArray = nil;

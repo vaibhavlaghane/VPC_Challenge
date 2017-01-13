@@ -41,6 +41,8 @@
 		DC83726E1E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
 		DC83726F1E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
 		DC8372701E2826210094DA4F /* TrackDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC83726D1E2826210094DA4F /* TrackDCell.m */; };
+		DCEC14F81E288EB500E7CD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8371FF1E27DCF50094DA4F /* Main.storyboard */; };
+		DCEC14F91E288EB600E7CD53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8371FF1E27DCF50094DA4F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCEC14F91E288EB600E7CD53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCEC14F81E288EB500E7CD53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +635,7 @@
 				DC8372221E27DCF50094DA4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC8372231E27DCF50094DA4F /* Build configuration list for PBXNativeTarget "CodingChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -639,6 +644,7 @@
 				DC8372251E27DCF50094DA4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC8372261E27DCF50094DA4F /* Build configuration list for PBXNativeTarget "CodingChallengeUITests" */ = {
 			isa = XCConfigurationList;
@@ -647,6 +653,7 @@
 				DC8372281E27DCF50094DA4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-
+#import "SearchTableViewController.h"
 @interface CodingChallengeTests : XCTestCase
 
 @end
@@ -38,7 +38,7 @@
 
 -(void )testSearchViewCLoads{
 
-    
+   // SearchTableViewController *svc = [ UIStoryboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
 }
 
 

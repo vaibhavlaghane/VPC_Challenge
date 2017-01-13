@@ -56,9 +56,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
     }
     if([jsonDict valueForKey:@"song" ] > 0 ){
         
-        NSArray *lyricsList = [ jsonDict valueForKey:@"song"];
-        //using NSSset to keep a check on duplicates
-        NSSet *lyricsSet = [NSSet set];
+        NSArray *lyricsList = [ jsonDict valueForKey:@"song"]; 
         for(int i =0; i < [lyricsList count] ; i++){
             LyricsDetails *lyric = [[ LyricsDetails alloc] init];
             lyric.artistName =  [[lyricsList objectAtIndex:i] valueForKey:@"artist"];
