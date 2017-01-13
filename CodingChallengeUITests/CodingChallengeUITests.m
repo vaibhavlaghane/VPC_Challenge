@@ -39,10 +39,28 @@
 
 -(void)testSearchViewLaunch{
 
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emptyListTable = app.tables[@"Empty list"];
+    XCTAssertNotNil(emptyListTable, @"Table doesnot exist");
     
+}
+
+
+-(void )testSearchBarLaunch{
+
     XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElement *emptyListTable = app.tables[@"Empty list"];
     XCUIElement *searchField = [emptyListTable childrenMatchingType:XCUIElementTypeSearchField].element;
+      XCTAssertNotNil(searchField, @"TabsearchFieldle doesnot exist");    
+}
+
+-(void)testIAlertBox{
+
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emptyListTable = app.tables[@"Empty list"];
+    XCUIElement *searchField = [emptyListTable childrenMatchingType:XCUIElementTypeSearchField].element;
+    XCTAssertNotNil(searchField, @"TabsearchFieldle doesnot exist");
+    
     [searchField tap];
     [searchField tap];
     [searchField typeText:@"fdgdh"];
@@ -51,14 +69,23 @@
     XCUIElement *trackunavailableAlert = app.alerts[@"TrackUnavailable"];
     [trackunavailableAlert.staticTexts[@"Track searched is not available. Please type different combinations of the text and search"] tap];
     [trackunavailableAlert.buttons[@"Ok"] tap];
-    [emptyListTable swipeDown];
+    XCTAssertNotNil(trackunavailableAlert, @"Alert not displayed");
+    
+}
+
+
+-(void)testValidtextSearch{
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emptyListTable = app.tables[@"Empty list"];
+    XCUIElement *searchField = [emptyListTable childrenMatchingType:XCUIElementTypeSearchField].element;
+    XCTAssertNotNil(searchField, @"TabsearchFieldle doesnot exist");
+    
     [searchField tap];
     [searchField tap];
-    [searchField typeText:@"r"];
+    [searchField typeText:@"tess"];
     [app typeText:@"\r"];
     
     
-
 }
-
 @end

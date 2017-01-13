@@ -9,7 +9,7 @@
 #import "ParseJSON.h"
 
 @implementation ParseJSON
-
+ 
 SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
 
 
@@ -33,7 +33,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
             track.artistName = [[trackList objectAtIndex:i] valueForKey:@"artistName"];
             track.info = [[trackList objectAtIndex:i] valueForKey:@"longDescription"];
             track.albumName =  [[trackList objectAtIndex:i] valueForKey:@"collectionName"];
-
             track.imageURL = [[trackList objectAtIndex:i] valueForKey:@"artworkUrl30"];
             track.uniqueID = [[trackList objectAtIndex:i] valueForKey:@"trackId"];
             
@@ -69,6 +68,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ParseJSON)
     return lyrics;
     
 }
+
+
+
 
 
 

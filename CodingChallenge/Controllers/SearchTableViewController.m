@@ -74,16 +74,13 @@ static NSString *userMessage = @"Track searched is not available. Please type di
                     UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
                     if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
                     }
-                    
                     if(downloadedImage){
                         [cell.imageView setImage:downloadedImage];
-                                           }
-                        
-            }
-                else if (track.imageURL !=nil ){
-                            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:track.imageURL ]]];
-                            [cell.imageView setImage:downloadedImage];
-                        }
+                    }
+                }else if (track.imageURL !=nil ){
+                        UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:track.imageURL ]]];
+                        [cell.imageView setImage:downloadedImage];
+                }
         }
             
          cell.imageView.contentMode = UIViewContentModeScaleAspectFit ;
@@ -92,7 +89,6 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     currTrackObj = [ tracksArray objectAtIndex:(int )indexPath.row ];
     [ self performSegueWithIdentifier:@"LyricsSegue" sender:self ];
     currTrackObj = nil ; 
@@ -102,7 +98,6 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if(currTrackObj != nil ){
-        
         lyricsVC = segue.destinationViewController;
         //Pass the currTrack details to the new view controller
         lyricsVC.currTrack = currTrackObj;
@@ -220,12 +215,9 @@ didCompleteWithError:(nullable NSError *)error{
                             }
                           //once all the track names are read --- reload the table view
                             dispatch_async( dispatch_get_main_queue()   , ^{
- 
                                 [self.tableView reloadData];
-                                self.tableView.contentOffset= CGPointZero ;;
-                                //[self.view setNeedsLayout ];
+                                self.tableView.contentOffset= CGPointZero ;
                             });
-                          
                       }];
     [dataTask resume];   // Executed First
 }

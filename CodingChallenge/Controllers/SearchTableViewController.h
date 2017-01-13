@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tracksTableView;
 
+//for test purposes
 
+-(void )downloadJSONData:(NSString*)url;
 @end
