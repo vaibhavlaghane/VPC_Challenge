@@ -13,14 +13,15 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 @interface SearchTableViewController ()
 {
     NSURLSessionDataTask            *dataTask;
-    NSMutableArray                        *tracksArray;
+    NSMutableArray                        *tracksArray, *tracksCopy;//current list of items in the array
+    TrackDetails                               *currTrackObj;
     LyricsViewController                *lyricsVC;
     NSString                                    *sharedSessionID;
     NSURLSessionConfiguration    *sessionConfiguration;
     NSURLSession                           *backgroundSession;
-    NSString                                    *downloadFolder;
+    NSString                                    *downloadFolder;//download folder for files
     NSUInteger                               *downloadCount;
-    NSMutableDictionary                *trackIDFilePaths;
+    NSMutableDictionary                *trackIDFilePaths, *lyricsData;//store downloaded images path mapped to trackID
 }
 
 @end
@@ -29,14 +30,9 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self loadDownloadInitializers];
-    trackIDFilePaths = [[ NSMutableDictionary alloc] initWithCapacity:10];
+    trackIDFilePaths = [[ NSMutableDictionary alloc] initWithCapacity:10];//aribtray size
+    tracksArray = [[ NSMutableArray  alloc] initWithCapacity:10];;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,19 +41,15 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath;
-{
-    return 150;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath;
+//{
+//    return 150;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return  [tracksArray count];
 }
 
@@ -69,13 +61,6 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     }
     cell.textLabel.textColor                =   [ UIColor blackColor];
     cell.backgroundColor                    =   [ UIColor lightGrayColor];;
-    //
-    //    [cell.labelStringAlbum setText: NSLocalizedString(@"Year", nil)];
-    //    [cell.labelStringTrack setText:NSLocalizedString(@"Brief Intro", nil) ];
-    //    [cell.labelStringArtist setText:NSLocalizedString(@"Director", nil) ];
-    //    [cell.labelStringInfo setText:NSLocalizedString(@"track", nil) ];
-    //
-    //
     @synchronized (tracksArray ) {
         
         if([tracksArray objectAtIndex:indexPath.row] != nil ){
@@ -85,20 +70,12 @@ static NSString *userMessage = @"Track searched is not available. Please type di
             cell.labelStringArtist.text = track.artistName;
             cell.labelStringAlbum.text = track.albumName ;
             cell.currTrackID = track.uniqueID ;
+            cell.imageUrl = track.imageURL ;
             NSURL *filePath =   [trackIDFilePaths objectForKey:track.uniqueID];
-//            if(track.trackImage != nil){
-//                //  cell.imageView = [[ UIImageView alloc] initWithImage:track.trackImage];
-//                [cell.imageView setImage:track.trackImage];
-//            }else
-//                
                 if (filePath != nil){
-              
                     
-                        UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
+                    UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
                     if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
-         
-                    
-                    //  cell.imageView = [[ UIImageView alloc] initWithImage:track.trackImage];
                     [cell.imageView setImage:downloadedImage];
                 }
             }
@@ -109,28 +86,9 @@ static NSString *userMessage = @"Track searched is not available. Please type di
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"CURRENTCELL"];
-    //    @synchronized (self ) {
-    //
-    //        if([trackObjects objectAtIndex:indexPath.row] != nil ){
-    //            trackTrack *mv = [ trackObjects objectAtIndex:(int )indexPath.row ];
-    //
-    //            NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
-    //            [map setValue:mv.trackName forKey:@"trackName"];
-    //            [map setValue:mv.directorName forKey:@"directorName"];
-    //            [map setValue:mv.posterURL forKey:@"posterURL"];
-    //            [map setValue:mv.year forKey:@"year"];
-    //            [map setValue:mv.briefIntro forKey:@"briefIntro"];
-    //
-    //            [[NSUserDefaults standardUserDefaults] setObject:map forKey:@"CURRENTCELL"];
-    //
-    //        }
-    
-    
-    //    }
-    
-    //    [[NSUserDefaults standardUserDefaults] synchronize];
-    //
+    currTrackObj = [ tracksArray objectAtIndex:(int )indexPath.row ];
+    [ self performSegueWithIdentifier:@"LyricsSegue" sender:self ];
+    currTrackObj = nil ;
     //load detail view controller from the present controller with the details of the cell selected
     //re-init
     //    detailVC =  [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
@@ -138,16 +96,36 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     //
 }
 
-
-
-
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    lyricsVC = segue.destinationViewController;
+    if(currTrackObj != nil ){
+        
+        lyricsVC = segue.destinationViewController;
+        lyricsVC.labelStringTrack.text = currTrackObj.trackName;
+        lyricsVC.labelStringAlbum.text = currTrackObj.albumName;
+        lyricsVC.LabelStringArtist.text = currTrackObj.artistName ;
+        
+        lyricsVC.currTrack = currTrackObj;
+        
+        NSURL *filePath =   [trackIDFilePaths objectForKey:currTrackObj.uniqueID];
+        if (filePath != nil){
+            lyricsVC.imageURL = filePath;
+            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
+            if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
+                [lyricsVC.imageView setImage:downloadedImage];
+            }
+        }
+    }
 }
 
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+
+    if(currTrackObj != nil){
+        return true;
+    }
+    return false;
+}
 #pragma mark - search field delegate methods
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
@@ -167,12 +145,12 @@ static NSString *userMessage = @"Track searched is not available. Please type di
         NSString* url = [  @"https://itunes.apple.com/search?term=" stringByAppendingString:searchTerm ];
         //call the API to search the entered track name
         [self downloadJSONData:url];
-        @synchronized (tracksArray) {
+        //@synchronized (tracksArray) {
             if(tracksArray){
                 //Once json is download - we have retrieved the file details and url paths for images - download the images/posters
                 [self downloadImages:tracksArray];
             }
-        }
+        //}
     }
 }
 
@@ -202,9 +180,10 @@ didFinishDownloadingToURL:(NSURL *)location{
                     dispatch_async( dispatch_get_main_queue()   , ^{
                         
                         
-                        [ self.tracksTableView  beginUpdates ];
-                        [self.tracksTableView reloadData];
-                        [self.tracksTableView endUpdates];
+                       // [ self.tableView  beginUpdates ];
+                        [self.tableView reloadData];
+                      //  [self.tableView endUpdates];
+                            [self.view setNeedsLayout ];
                     });
                 }
             }
@@ -242,16 +221,19 @@ didCompleteWithError:(nullable NSError *)error{
                           @synchronized (tracksArray) {
                               tracksArray = nil;
                               tracksArray = [[ ParseJSON shared ] parseTracksJSON:json];
-                              if (tracksArray == nil || [tracksArray count] == 0){
+                                if (tracksArray == nil || [tracksArray count] == 0){
                                   //alert the user with message
-                                  [ self alertUser:userMessage ];
-                              }
-                          }
+                                    [ self alertUser:userMessage ];
+                                }
+                            }
                           //once all the track names are read --- reload the table view
-                          dispatch_async( dispatch_get_main_queue()   , ^{
-                              [self.tracksTableView reloadData];
-                              self.tracksTableView.contentOffset= CGPointZero ;;
-                          });
+                            dispatch_async( dispatch_get_main_queue()   , ^{
+                               // [self.tableView beginUpdates];
+                                [self.tableView reloadData];
+                                //[self.tableView endUpdates];
+                                self.tableView.contentOffset= CGPointZero ;;
+                                [self.view setNeedsLayout ];
+                            });
                           
                       }];
     [dataTask resume];   // Executed First
@@ -270,7 +252,6 @@ didCompleteWithError:(nullable NSError *)error{
 
 //downlad images for all the cells of current list of tracks
 -(void) downloadImages:(NSArray*)trackObjects{
-    
     if(trackObjects == nil ){ return ;}
     for(int i = 0; i < [trackObjects count]; i++){
         TrackDetails *track = [ trackObjects objectAtIndex:i];
@@ -299,17 +280,7 @@ didCompleteWithError:(nullable NSError *)error{
     sessionConfiguration.allowsCellularAccess = NO;
     sessionConfiguration.HTTPMaximumConnectionsPerHost = 1;
     backgroundSession = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:(id )self delegateQueue:nil];
-    //create a background downdload folder for downloaded images
-    NSArray *pathA = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *folderPath = ([pathA count] > 0) ? [pathA objectAtIndex:0]: nil  ;;
-    NSLog(@"FolderPath: %@", folderPath);
-    folderPath = [folderPath stringByAppendingPathComponent:@"BackgroundDownloads"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    if (![fm fileExistsAtPath:folderPath]) { // create the folder if it does not exist
-        [fm createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    downloadFolder = folderPath;
+    downloadFolder = [ [CommonMethods shared] downloadFolder];
 }
 
 #pragma methods - alert user

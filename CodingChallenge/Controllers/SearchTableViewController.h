@@ -11,6 +11,7 @@
 #import "TrackDetails.h"
 #import "LyricsViewController.h"
 #import "ParseJSON.h"
+#import "CommonMethods.h"
 
 @interface SearchTableViewController : UITableViewController<NSURLSessionDownloadDelegate, NSURLSessionTaskDelegate, NSURLSessionDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

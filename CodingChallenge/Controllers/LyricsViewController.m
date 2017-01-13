@@ -13,10 +13,35 @@
 @end
 
 @implementation LyricsViewController
+@synthesize imageView,LabelStringArtist,labelStringTrack,labelStringSong,labelStringUrl,labelStringLyrics,labelStringAlbum;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+   
+   self.labelStringTrack.text = _currTrack.trackName;
+    self.labelStringAlbum.text = _currTrack.albumName;
+    self.LabelStringArtist.text = _currTrack.artistName ;
+    
+   // lyricsVC.currTrack = currTrackObj;
+    
+    NSURL *filePath =   self.imagefilePath ;
+   
+    if (filePath != nil){
+       // lyricsVC.imageURL = filePath;
+        UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
+        if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
+           [self.imageView setImage:downloadedImage];
+        }
+    }
+    
+    if(!filePath){
+        if(_currTrack.imageURL !=nil ){
+            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:_currTrack.imageURL ]]];
+                  [self.imageView setImage:downloadedImage];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

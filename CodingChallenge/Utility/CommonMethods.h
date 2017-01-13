@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Singleton.h"
 
-@interface CommonMethods : NSObject
+@interface CommonMethods : Singleton
 
+
++ (CommonMethods *) shared;
+-(NSString*)downloadFolder;
 @end
