@@ -77,16 +77,16 @@ static NSString *userMessage = @"Track searched is not available. Please type di
                     
                     if(downloadedImage){
                         [cell.imageView setImage:downloadedImage];
-                        [cell.imageView2 setImage:downloadedImage];
-                    }
+                                           }
                         
-            }else if (track.imageURL !=nil ){
+            }
+                else if (track.imageURL !=nil ){
                             UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:track.imageURL ]]];
                             [cell.imageView setImage:downloadedImage];
                         }
-                    }
+        }
             
-        
+         cell.imageView.contentMode = UIViewContentModeScaleAspectFit ;
     }
     return cell;
 }

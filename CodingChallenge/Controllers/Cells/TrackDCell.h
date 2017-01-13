@@ -10,11 +10,10 @@
 
 @interface TrackDCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+
 @property (nonatomic, retain) IBOutlet UILabel *trackTitleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *trackInfo;
 @property (nonatomic, retain) IBOutlet UILabel *artistName;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 
 @property (strong,nonatomic) NSString *currTrackID;
 @property (strong,nonatomic) NSString *imageUrl;
@@ -24,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelStringInfo;
 @property (weak, nonatomic) IBOutlet UILabel *labelStringAlbum;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

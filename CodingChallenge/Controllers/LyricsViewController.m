@@ -49,6 +49,9 @@
                   [self.imageView setImage:downloadedImage];
         }
     }
+    
+    
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit ;
 }
 
 - (void)didReceiveMemoryWarning {
