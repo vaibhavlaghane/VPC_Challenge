@@ -18,9 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelStringLyrics;
 @property (weak, nonatomic) IBOutlet UILabel *labelStringAlbum;
 
-@property (nonatomic,readwrite) UIImage * trackImage;
-@property (nonatomic,readwrite) NSURL * imageURL;
-@property (nonatomic,readwrite) NSURL * imagefilePath;
+@property (nonatomic,retain) UIImage * trackImage;
+@property (nonatomic,retain) NSURL * imageURL;
+@property (nonatomic,retain) NSURL * imagefilePath;
 @property (nonatomic,retain) TrackDetails * currTrack;
 
 @property (nonatomic,retain) NSString * jsonURL;

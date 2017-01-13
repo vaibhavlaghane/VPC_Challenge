@@ -72,6 +72,7 @@ static NSString *userMessage = @"Track searched is not available. Please type di
             cell.currTrackID = track.uniqueID ;
             cell.imageUrl = track.imageURL ;
             NSURL *filePath =   [trackIDFilePaths objectForKey:track.uniqueID];
+            
                 if (filePath != nil){
                     
                     UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
@@ -88,12 +89,7 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     
     currTrackObj = [ tracksArray objectAtIndex:(int )indexPath.row ];
     [ self performSegueWithIdentifier:@"LyricsSegue" sender:self ];
-    currTrackObj = nil ;
-    //load detail view controller from the present controller with the details of the cell selected
-    //re-init
-    //    detailVC =  [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    //    [ self presentViewController:detailVC animated:YES completion:nil];
-    //
+    currTrackObj = nil ; 
 }
 
 #pragma mark - Navigation
@@ -102,21 +98,18 @@ static NSString *userMessage = @"Track searched is not available. Please type di
     if(currTrackObj != nil ){
         
         lyricsVC = segue.destinationViewController;
-        lyricsVC.labelStringTrack.text = currTrackObj.trackName;
-        lyricsVC.labelStringAlbum.text = currTrackObj.albumName;
-        lyricsVC.LabelStringArtist.text = currTrackObj.artistName ;
         
         lyricsVC.currTrack = currTrackObj;
-        
+//        lyricsVC.labelStringTrack.text = currTrackObj.trackName;
+//        lyricsVC.labelStringAlbum.text = currTrackObj.albumName;
+//        lyricsVC.LabelStringArtist.text = currTrackObj.artistName ;
         NSURL *filePath =   [trackIDFilePaths objectForKey:currTrackObj.uniqueID];
         if (filePath != nil){
             lyricsVC.imageURL = filePath;
-            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
-            if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
-                [lyricsVC.imageView setImage:downloadedImage];
+ 
             }
         }
-    }
+    
 }
 
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
