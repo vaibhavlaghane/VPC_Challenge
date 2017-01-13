@@ -26,27 +26,35 @@
     
     jsonURL = [ self  formJSON];
     [self downloadJSONData:jsonURL];
-    // Do any additional setup after loading the view from its nib.
+    
     self.labelStringTrack.text = _currTrack.trackName;
     self.labelStringAlbum.text = _currTrack.albumName;
     self.LabelStringArtist.text = _currTrack.artistName ;
     
-   // lyricsVC.currTrack = currTrackObj;
-    
     NSURL *filePath =   self.imagefilePath ;
    
     if (filePath != nil){
-       // lyricsVC.imageURL = filePath;
-        UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
-        if(downloadedImage == nil ){ downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
-           [self.imageView setImage:downloadedImage];
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL: filePath]];
+            if(downloadedImage == nil ){
+                downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfFile: [filePath absoluteString]]];
+                          }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(downloadedImage){
+                        [self.imageView setImage:downloadedImage];
+                    }
+            });
+        });
     }
     
     if(!filePath){
         if(_currTrack.imageURL !=nil ){
-            UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:_currTrack.imageURL ]]];
-                  [self.imageView setImage:downloadedImage];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                  UIImage *downloadedImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:  [ NSURL URLWithString:_currTrack.imageURL ]]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.imageView setImage:downloadedImage];
+                });
+            });
         }
     }
     
@@ -59,20 +67,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 -(NSString*)formJSON{
-//http://lyrics.wikia.com/api.php?func=getSong&artist=Tom+Waits&song=new+coat+of+paint&fmt=json
-    
     NSString *prefix= @"http://lyrics.wikia.com/api.php?func=getSong&artist=";
     NSString *prefix2 = @"&song=";
     NSString *prefix3 = @"&fmt=";

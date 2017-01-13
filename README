@@ -1,11 +1,11 @@
-The project is designed in 4 main components- namely - COntrollers, Model, Network, and Utility
+The project is designed in 4 main components- namely - Controllers, Model, Network, and Utility
 
 Controllers has files for the SearchView and the Lyrics View with cells for the tableview.
 Model - contains classes for track and lyrics details
 Network - contains the parser for the downloaded JSON file ---- the download sessions for the image files could be in network folder - but it is implemented in the searchviewcontroller class itself.
 Utility -contains the commonly used methods .
 
----Design -
+---Design
 The classes are grouped as follows;
 ViewControllers-
 Contains LyricsViewControoler -  which launches the detail view when a cell is tapped on the tablelistview [which is SearchViewController].
@@ -14,11 +14,8 @@ communication from searchview to lyrics viev happens via segue
 DataModel - Track contains the attributes of the movie to be displayed.
 ghostimage - has been added as placeholder to be shown when no image is present .
 
-+++++++++++++ Lyrics Details+++++++++++++
-The JSON returned by the lyrics API is not consistent with json format hence cannnot be parsed.
-Code is present in lyrics controller to parse the data but it is not valid input json hence no data in lyrics part.
 
----Defensive checks -
+---Defensive checks
 Duplicates checks for the JSON objects have been implemented.
 If invalid text is searched - the alert box is displayed as message to user
 
@@ -26,11 +23,19 @@ Testing:
 The search text was tested with various combinations on input values
 Checked the download of image files
 
+Unit Tests:
+CodingChallengeTests and CodingChallengeUITests cover the Unit tests for the project .
+
++++++++++++++ Lyrics Details+++++++++++++
+The JSON returned by the lyrics API is not consistent with json format hence cannnot be parsed.
+Code is present in lyrics controller to parse the data but discrepancy in the format, hence no data in lyrics part.
+
+
 Enhancements in CODE!!!
 The download session operation in searchviewcontroller can be performed in another class.
 This will be more modular and testable.
 There can be a loading rim indicating the images/data is being downloaded instead of unnessary wait time
-
+The searchTab should stick at top and not scroll with tableview -
 
 
 
